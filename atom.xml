@@ -6,7 +6,7 @@
   <link href="http://cavalry.top/atom.xml" rel="self"/>
   
   <link href="http://cavalry.top/"/>
-  <updated>2021-01-27T07:20:15.847Z</updated>
+  <updated>2021-01-27T09:12:35.201Z</updated>
   <id>http://cavalry.top/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第二次测试</title>
+    <link href="http://cavalry.top/2021/01/27/di-er-ci-ce-shi/"/>
+    <id>http://cavalry.top/2021/01/27/di-er-ci-ce-shi/</id>
+    <published>2021-01-27T09:12:16.000Z</published>
+    <updated>2021-01-27T09:12:35.201Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>文章题目</title>
