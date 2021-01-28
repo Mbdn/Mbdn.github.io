@@ -6,7 +6,7 @@
   <link href="http://cavalry.top/atom.xml" rel="self"/>
   
   <link href="http://cavalry.top/"/>
-  <updated>2021-01-27T09:14:28.608Z</updated>
+  <updated>2021-01-26T06:34:14.253Z</updated>
   <id>http://cavalry.top/</id>
   
   <author>
@@ -15,53 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>第二次测试</title>
-    <link href="http://cavalry.top/2021/01/27/di-er-ci-ce-shi/"/>
-    <id>http://cavalry.top/2021/01/27/di-er-ci-ce-shi/</id>
-    <published>2021-01-27T09:12:16.000Z</published>
-    <updated>2021-01-27T09:14:28.608Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;文字统计&quot;&gt;&lt;a href=&quot;#文字统计&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="分类" scheme="http://cavalry.top/tags/%E5%88%86%E7%B1%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>文章题目</title>
-    <link href="http://cavalry.top/2021/01/27/wen-zhang-ti-mu/"/>
-    <id>http://cavalry.top/2021/01/27/wen-zhang-ti-mu/</id>
-    <published>2021-01-27T01:22:11.000Z</published>
-    <updated>2021-01-27T07:20:15.847Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;python的hello&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;print(hello</summary>
-        
-      
-    
-    
-    
-    
-    <category term="分类" scheme="http://cavalry.top/tags/%E5%88%86%E7%B1%BB/"/>
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
