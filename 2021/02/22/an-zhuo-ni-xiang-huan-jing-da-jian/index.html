@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="RTX3090配合ubuntu18.4深度学习环境搭建, 爬虫,安卓逆向,神经网络">
+    <meta name="keywords" content="安卓逆向环境搭建, 爬虫,安卓逆向,神经网络">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>RTX3090配合ubuntu18.4深度学习环境搭建 | Ladin</title>
+    <title>安卓逆向环境搭建 | Ladin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">RTX3090配合ubuntu18.4深度学习环境搭建</h1>
+                    <h1 class="description center-align post-title">安卓逆向环境搭建</h1>
                 </div>
             </div>
         </div>
@@ -432,12 +432,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">神经网络</span>
+                            <a href="/tags/%E5%AE%89%E5%8D%93/">
+                                <span class="chip bg-color">安卓</span>
                             </a>
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/%E5%AE%89%E5%85%A8/">
+                                <span class="chip bg-color">安全</span>
+                            </a>
+                        
+                            <a href="/tags/Frida/">
+                                <span class="chip bg-color">Frida</span>
                             </a>
                         
                     </div>
@@ -448,12 +452,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-category">
-                                神经网络
-                            </a>
-                        
-                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/linux/" class="post-category">
-                                linux
+                            <a href="/categories/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/" class="post-category">
+                                安卓逆向
                             </a>
                         
                     </div>
@@ -465,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-28
+                    2021-02-22
                 </div>
                 
 
@@ -474,14 +474,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4
+                    544
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -501,8 +501,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#环境<br>  ubuntu18.04</p>
-
+                <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>框架：Frida <a target="_blank" rel="noopener" href="https://frida.re/docs/javascript-api/">https://frida.re/docs/javascript-api/</a><br>环境：python==3.6<br>反编译工具：jadx （git传送门）<a target="_blank" rel="noopener" href="https://github.com/skylot/jadx">https://github.com/skylot/jadx</a><br>介绍：本人使用python做爬虫，java很少用来写爬虫（主要是不熟 (@_@) 留下了彩笔的泪水），Frida可以很方便的使用python和js脚本截取app数据，<br>当然是python的首选了。平台使用的macbook，python推荐使用虚拟环境（如conda）,反编译环境使用jadx，安卓环境使用一加3手机，以root。</p>
+<h3 id="jadx-安装"><a href="#jadx-安装" class="headerlink" title="jadx 安装"></a>jadx 安装</h3><p>安装jadx前提是你的环境已经有java的JDK，安装方式自行百度，这里不进行讲解</p>
+<h4 id="macbook安装"><a href="#macbook安装" class="headerlink" title="macbook安装"></a>macbook安装</h4><p>mac安装可以使用brew命令<br><code>brew install jadx</code></p>
+<h4 id="linux安装"><a href="#linux安装" class="headerlink" title="linux安装"></a>linux安装</h4><p>Linux使用macman<br><code>sudo pacman -S jadx</code></p>
+<h4 id="win安装"><a href="#win安装" class="headerlink" title="win安装"></a>win安装</h4><p>win下载地址 <a target="_blank" rel="noopener" href="https://github.com/skylot/jadx/releases/tag/v1.2.0">https://github.com/skylot/jadx/releases/tag/v1.2.0</a><br><img src="/images/githubcom-skylot-jadx-releases-tag-v120.png"><br>解压之后，运行.bat即可</p>
+<h3 id="Frida框架安装"><a href="#Frida框架安装" class="headerlink" title="Frida框架安装"></a>Frida框架安装</h3><p><strong>Frida</strong>分为连个端，安卓端和服务器端，下载的时候版本要一致</p>
+<h4 id="安卓安装frida"><a href="#安卓安装frida" class="headerlink" title="安卓安装frida"></a>安卓安装frida</h4><p>下载地址 <a target="_blank" rel="noopener" href="https://github.com/frida/frida/releases">https://github.com/frida/frida/releases</a> 根据自己的手机cpu是x86架构还是arm架构，一加3是arm64为<br>查看cpu类型使用<code>adb shell getprop ro.product.cpu.abi</code><br><img src="/images/anzuohuanj-cpu.png"><br>找到frida-server-开头的文件如：<br><img src="/images/anzhuan-fr.png"><br>下载，解压，使用adb 命令放入手机里面（手机一加root）<br><code>adb push 解压出来的文件 /data/local/tmp</code>  我的解压文件frida-server-12.6.8-android-arm64<br><code>adb shell </code>：进入adb<br><code>cd data/local/tmp su</code> (root手机获取root权限)<br><code>chmod 777 解压出来的文件名  我的是frida-server-12.6.8-android-arm64 ./解压出来的文件名</code>  我的是frida-server-12.6.8-android-arm64<br><img src="/images/anzshili.png"><br>没有报错手机端安装完毕！</p>
+<h4 id="服务端安装frida"><a href="#服务端安装frida" class="headerlink" title="服务端安装frida"></a>服务端安装frida</h4><p>文档地址 <a target="_blank" rel="noopener" href="https://frida.re/docs/installation/">https://frida.re/docs/installation/</a><br><code>pip install frida-tools</code><br>这里使用官方例子：apk下载地址 <a target="_blank" rel="noopener" href="https://github.com/ctfs/write-ups-2015/blob/master/seccon-quals-ctf-2015/binary/reverse-engineering-android-apk-1/rps.apk">https://github.com/ctfs/write-ups-2015/blob/master/seccon-quals-ctf-2015/binary/reverse-engineering-android-apk-1/rps.apk</a><br>python代码地址 <a target="_blank" rel="noopener" href="https://frida.re/docs/examples/android/">https://frida.re/docs/examples/android/</a><br>下载下来apk文件使用<code>adb install rps.apk</code><br>在手机端打开app</p>
+<p>端口转发到PC<br>在服务端执行:<br>    <code>adb forward tcp:27043 tcp:27043</code><br>    <code>adb forward tcp:27042 tcp:27042</code><br>    <code>frida-ps -U</code> 电脑上运行 android.process.acore 字样表示成功</p>
+<p>运行 python example.py<br>点击app如下<br><img src="/images/anzuonixianghuanjing-shili.png"><br>说明所有环境运行成功</p>
+<h3 id="测试案例"><a href="#测试案例" class="headerlink" title="测试案例"></a>测试案例</h3><h4 id=""><a href="#" class="headerlink" title=""></a></h4>
                 
             </div>
             <hr/>
@@ -528,7 +537,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cavalry.top/2021/01/28/rtx3090-pei-he-ubuntu18-4-shen-du-xue-xi-huan-jing-da-jian/">http://cavalry.top/2021/01/28/rtx3090-pei-he-ubuntu18-4-shen-du-xue-xi-huan-jing-da-jian/</a>
+                    <a href="http://cavalry.top/2021/02/22/an-zhuo-ni-xiang-huan-jing-da-jian/">http://cavalry.top/2021/02/22/an-zhuo-ni-xiang-huan-jing-da-jian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -566,12 +575,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">神经网络</span>
+                                <a href="/tags/%E5%AE%89%E5%8D%93/">
+                                    <span class="chip bg-color">安卓</span>
                                 </a>
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
+                                <a href="/tags/%E5%AE%89%E5%85%A8/">
+                                    <span class="chip bg-color">安全</span>
+                                </a>
+                            
+                                <a href="/tags/Frida/">
+                                    <span class="chip bg-color">Frida</span>
                                 </a>
                             
                         </div>
@@ -742,7 +755,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-01-28T10-53-40',
+        id: '2021-02-22T16-15-40',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -766,7 +779,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Thu Jan 28 2021 10:53:40 GMT+0800',
+    id: 'Mon Feb 22 2021 16:15:40 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -791,9 +804,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://cavalry.top/2021/01/28/rtx3090-pei-he-ubuntu18-4-shen-du-xue-xi-huan-jing-da-jian/';
-        this.page.identifier = '/2021/01/28/rtx3090-pei-he-ubuntu18-4-shen-du-xue-xi-huan-jing-da-jian/';
-        this.page.title = 'RTX3090配合ubuntu18.4深度学习环境搭建';
+        this.page.url = 'http://cavalry.top/2021/02/22/an-zhuo-ni-xiang-huan-jing-da-jian/';
+        this.page.identifier = '/2021/02/22/an-zhuo-ni-xiang-huan-jing-da-jian/';
+        this.page.title = '安卓逆向环境搭建';
     };
     let disqus_shortname = '';
 
@@ -1108,9 +1121,10 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/02/22/an-zhuo-ni-xiang-huan-jing-da-jian/">
                     <div class="card-image">
@@ -1128,9 +1142,9 @@ gitment.render('gitment-content');
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1143,6 +1157,7 @@ gitment.render('gitment-content');
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1169,13 +1184,13 @@ gitment.render('gitment-content');
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/25/hello-world/">
+                <a href="/2021/01/28/rtx3090-pei-he-ubuntu18-4-shen-du-xue-xi-huan-jing-da-jian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="RTX3090配合ubuntu18.4深度学习环境搭建">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">RTX3090配合ubuntu18.4深度学习环境搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1186,14 +1201,18 @@ gitment.render('gitment-content');
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B5%8B%E8%AF%95/" class="post-category">
-                                    测试
+                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    神经网络
+                                </a>
+                            
+                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/linux/" class="post-category">
+                                    linux
                                 </a>
                             
                             
@@ -1203,8 +1222,12 @@ gitment.render('gitment-content');
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B5%8B%E8%AF%95/">
-                        <span class="chip bg-color">测试</span>
+                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">神经网络</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
