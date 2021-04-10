@@ -6,7 +6,7 @@
   <link href="http://cavalry.top/atom.xml" rel="self"/>
   
   <link href="http://cavalry.top/"/>
-  <updated>2021-02-23T09:51:45.256Z</updated>
+  <updated>2021-04-10T03:16:01.808Z</updated>
   <id>http://cavalry.top/</id>
   
   <author>
@@ -17,11 +17,57 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android壳（一）</title>
+    <link href="http://cavalry.top/2021/04/10/android-ke-yi/"/>
+    <id>http://cavalry.top/2021/04/10/android-ke-yi/</id>
+    <published>2021-04-10T03:13:09.000Z</published>
+    <updated>2021-04-10T03:16:01.808Z</updated>
+    
+    
+    
+    
+    <category term="Android" scheme="http://cavalry.top/categories/Android/"/>
+    
+    
+    <category term="Android" scheme="http://cavalry.top/tags/Android/"/>
+    
+    <category term="对抗" scheme="http://cavalry.top/tags/%E5%AF%B9%E6%8A%97/"/>
+    
+    <category term="逆向" scheme="http://cavalry.top/tags/%E9%80%86%E5%90%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android学习笔记</title>
+    <link href="http://cavalry.top/2021/03/02/android-xue-xi-bi-ji/"/>
+    <id>http://cavalry.top/2021/03/02/android-xue-xi-bi-ji/</id>
+    <published>2021-03-02T09:44:57.000Z</published>
+    <updated>2021-03-03T08:51:51.660Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Andtoid学习笔记（一）&quot;&gt;&lt;a href=&quot;#Andtoid学习笔记（一）&quot; class=&quot;headerlink&quot; title=&quot;Andtoid学习笔记（一）&quot;&gt;&lt;/a&gt;Andtoid学习笔记（一）&lt;/h2&gt;&lt;h3 id=&quot;Java变量和数据类型&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Android" scheme="http://cavalry.top/categories/Android/"/>
+    
+    
+    <category term="Android" scheme="http://cavalry.top/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>安卓逆向环境搭建</title>
     <link href="http://cavalry.top/2021/02/22/an-zhuo-ni-xiang-huan-jing-da-jian/"/>
     <id>http://cavalry.top/2021/02/22/an-zhuo-ni-xiang-huan-jing-da-jian/</id>
     <published>2021-02-22T08:15:40.000Z</published>
-    <updated>2021-02-23T09:51:45.256Z</updated>
+    <updated>2021-03-17T10:17:18.991Z</updated>
     
     
       
