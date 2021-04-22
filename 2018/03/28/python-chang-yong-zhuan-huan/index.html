@@ -30,7 +30,8 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Ladin" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -474,7 +475,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    2.8k
                 </div>
                 
 
@@ -496,146 +497,149 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="常用转换"><a href="#常用转换" class="headerlink" title="常用转换"></a>常用转换</h1><h2 id="爬虫相关"><a href="#爬虫相关" class="headerlink" title="爬虫相关"></a>爬虫相关</h2><h3 id="url转json"><a href="#url转json" class="headerlink" title="url转json"></a>url转json</h3><pre><code>from urllib.parse import urlencode
-data = &#123;
+                <h1 id="常用转换"><a href="#常用转换" class="headerlink" title="常用转换"></a>常用转换</h1><h2 id="爬虫相关"><a href="#爬虫相关" class="headerlink" title="爬虫相关"></a>爬虫相关</h2><h3 id="url转json"><a href="#url转json" class="headerlink" title="url转json"></a>url转json</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">from urllib.parse import urlencode
+data &#x3D; &#123;
     &#39;query&#39;:&#39;keyword&#39;,
     &#39;type&#39;:&#39;2&#39;,
     &#39;page&#39;:&#39;page&#39;&#125;
-queries = urlencode(data)</code></pre>
-<h3 id="json另一种字典数据"><a href="#json另一种字典数据" class="headerlink" title="json另一种字典数据"></a>json另一种字典数据</h3><pre><code> urllib.urlencode(&#123;&#39;data&#39;: json.dumps(
-    &#123;&#39;title&#39;:&quot;hello world！&quot;,&#39;anonymous&#39;:False,&#39;needautocategory&#39;:True&#125;
- )&#125;)</code></pre>
-<h3 id="转编码"><a href="#转编码" class="headerlink" title="转编码"></a>转编码</h3><pre><code>from urllib import request
-html = request.urlopen(&#39;www.baidu.com&#39;).read().decode(&#39;utf-8&#39;)</code></pre>
-<h3 id="xpath对象转换为字符串"><a href="#xpath对象转换为字符串" class="headerlink" title="xpath对象转换为字符串"></a>xpath对象转换为字符串</h3><pre><code>data = html.xpath(&#39;//div[@class=&#39;lis&#39;]/a/text()&#39;).extract()#将xpath对象转化为字符串</code></pre>
-<h3 id="json转字典"><a href="#json转字典" class="headerlink" title="json转字典"></a>json转字典</h3><pre><code>import json
-dicts = json.dumps(dict(对象))</code></pre>
-<h2 id="判断编码类型"><a href="#判断编码类型" class="headerlink" title="判断编码类型"></a>判断编码类型</h2><h3 id="使用chardet"><a href="#使用chardet" class="headerlink" title="使用chardet"></a>使用chardet</h3><pre><code>import chardet
-chardet.detect(&#39;r.content&#39;)</code></pre>
-<h3 id="使用cchardet使用中文优先"><a href="#使用cchardet使用中文优先" class="headerlink" title="使用cchardet使用中文优先"></a>使用cchardet使用中文优先</h3><pre><code>import cchardet
-cchardet.detech(&#39;测试‘.encode(&#39;gbk&#39;))</code></pre>
+queries &#x3D; urlencode(data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="json另一种字典数据"><a href="#json另一种字典数据" class="headerlink" title="json另一种字典数据"></a>json另一种字典数据</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">urllib.urlencode(&#123;&#39;data&#39;: json.dumps(
+   &#123;&#39;title&#39;:&quot;hello world！&quot;,&#39;anonymous&#39;:False,&#39;needautocategory&#39;:True&#125;
+)&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="转编码"><a href="#转编码" class="headerlink" title="转编码"></a>转编码</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">from urllib import request
+html &#x3D; request.urlopen(&#39;www.baidu.com&#39;).read().decode(&#39;utf-8&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="xpath对象转换为字符串"><a href="#xpath对象转换为字符串" class="headerlink" title="xpath对象转换为字符串"></a>xpath对象转换为字符串</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">data &#x3D; html.xpath(&#39;&#x2F;&#x2F;div[@class&#x3D;&#39;lis&#39;]&#x2F;a&#x2F;text()&#39;).extract() #将xpath对象转化为字符串<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="json转字典"><a href="#json转字典" class="headerlink" title="json转字典"></a>json转字典</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import json
+dicts &#x3D; json.dumps(dict(对象))  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="判断编码类型"><a href="#判断编码类型" class="headerlink" title="判断编码类型"></a>判断编码类型</h2><h3 id="使用chardet"><a href="#使用chardet" class="headerlink" title="使用chardet"></a>使用chardet</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import chardet
+chardet.detect(&#39;r.content&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="使用cchardet使用中文优先"><a href="#使用cchardet使用中文优先" class="headerlink" title="使用cchardet使用中文优先"></a>使用cchardet使用中文优先</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import cchardet
+cchardet.detech(&#39;测试‘.encode(&#39;gbk&#39;))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="内存数据保存硬盘"><a href="#内存数据保存硬盘" class="headerlink" title="内存数据保存硬盘"></a>内存数据保存硬盘</h2><p>使用：pickle 模块</p>
 <h2 id="List-and-Str"><a href="#List-and-Str" class="headerlink" title="List and Str"></a>List and Str</h2><h3 id="去空格"><a href="#去空格" class="headerlink" title="去空格"></a>去空格</h3><p>这个方法很多如：</p>
-<pre><code>lists = [&#39;    a&#39;, &#39;     b    &#39;, &#39;    c      &#39;]
-[t.strip() for t lists]</code></pre>
-<h3 id="切分字符串"><a href="#切分字符串" class="headerlink" title="切分字符串"></a>切分字符串</h3><pre><code> name = &#39; | 2室1厅 | 72.46平米 | 南 | 简装&#39;
- d = name.split(&#39;|&#39;)</code></pre>
-<h3 id="去空格及特殊符号"><a href="#去空格及特殊符号" class="headerlink" title="去空格及特殊符号"></a>去空格及特殊符号</h3><pre><code>s.strip().lstrip().rstrip(&#39;,&#39;)</code></pre>
-<h3 id="复制字符串"><a href="#复制字符串" class="headerlink" title="复制字符串"></a>复制字符串</h3><pre><code>#strcpy(sStr1,sStr2)
-sStr1 = &#39;strcpy&#39;
-sStr2 = sStr1
-sStr1 = &#39;strcpy2&#39;
-print(sStr2）</code></pre>
-<h3 id="连接字符串"><a href="#连接字符串" class="headerlink" title="连接字符串"></a>连接字符串</h3><pre><code>#strcat(sStr1,sStr2)
-sStr1 = &#39;strcat&#39;
-sStr2 = &#39;append&#39;
-sStr1 += sStr2
-print sStr1</code></pre>
-<h3 id="查找字符"><a href="#查找字符" class="headerlink" title="查找字符"></a>查找字符</h3><pre><code>#strchr(sStr1,sStr2)
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">lists &#x3D; [&#39;    a&#39;, &#39;     b    &#39;, &#39;    c      &#39;]
+[t.strip() for t lists]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="切分字符串"><a href="#切分字符串" class="headerlink" title="切分字符串"></a>切分字符串</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">name &#x3D; &#39; | 2室1厅 | 72.46平米 | 南 | 简装&#39;
+d &#x3D; name.split(&#39;|&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="去空格及特殊符号"><a href="#去空格及特殊符号" class="headerlink" title="去空格及特殊符号"></a>去空格及特殊符号</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">s.strip().lstrip().rstrip(&#39;,&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="复制字符串"><a href="#复制字符串" class="headerlink" title="复制字符串"></a>复制字符串</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strcpy(sStr1,sStr2)
+sStr1 &#x3D; &#39;strcpy&#39;
+sStr2 &#x3D; sStr1
+sStr1 &#x3D; &#39;strcpy2&#39;
+print(sStr2）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="连接字符串"><a href="#连接字符串" class="headerlink" title="连接字符串"></a>连接字符串</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strcat(sStr1,sStr2)
+sStr1 &#x3D; &#39;strcat&#39;
+sStr2 &#x3D; &#39;append&#39;
+sStr1 +&#x3D; sStr2
+print sStr1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="查找字符"><a href="#查找字符" class="headerlink" title="查找字符"></a>查找字符</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strchr(sStr1,sStr2)
 # &lt; 0 为未找到
-sStr1 = &#39;strchr&#39;
-sStr2 = &#39;s&#39;
-nPos = sStr1.index(sStr2)
-print nPos</code></pre>
-<h3 id="比较字符串"><a href="#比较字符串" class="headerlink" title="比较字符串"></a>比较字符串</h3><pre><code>#strcmp(sStr1,sStr2)
-sStr1 = &#39;strchr&#39;
-sStr2 = &#39;strch&#39;
-print cmp(sStr1,sStr2)</code></pre>
-<h3 id="扫描字符串是否包含指定的字符"><a href="#扫描字符串是否包含指定的字符" class="headerlink" title="扫描字符串是否包含指定的字符"></a>扫描字符串是否包含指定的字符</h3><pre><code>#strspn(sStr1,sStr2)
-sStr1 = &#39;12345678&#39;
-sStr2 = &#39;456&#39;
+sStr1 &#x3D; &#39;strchr&#39;
+sStr2 &#x3D; &#39;s&#39;
+nPos &#x3D; sStr1.index(sStr2)
+print nPos<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="比较字符串"><a href="#比较字符串" class="headerlink" title="比较字符串"></a>比较字符串</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strcmp(sStr1,sStr2)
+sStr1 &#x3D; &#39;strchr&#39;
+sStr2 &#x3D; &#39;strch&#39;
+print cmp(sStr1,sStr2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="扫描字符串是否包含指定的字符"><a href="#扫描字符串是否包含指定的字符" class="headerlink" title="扫描字符串是否包含指定的字符"></a>扫描字符串是否包含指定的字符</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strspn(sStr1,sStr2)
+sStr1 &#x3D; &#39;12345678&#39;
+sStr2 &#x3D; &#39;456&#39;
 #sStr1 and chars both in sStr1 and sStr2
-print len(sStr1 and sStr2)</code></pre>
-<h3 id="字符串长度"><a href="#字符串长度" class="headerlink" title="字符串长度"></a>字符串长度</h3><pre><code>#strlen(sStr1)
-sStr1 = &#39;strlen&#39;
-print len(sStr1)</code></pre>
-<h3 id="将字符串中的大小写转换"><a href="#将字符串中的大小写转换" class="headerlink" title="将字符串中的大小写转换"></a>将字符串中的大小写转换</h3><pre><code>S.lower() #小写 
+print len(sStr1 and sStr2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="字符串长度"><a href="#字符串长度" class="headerlink" title="字符串长度"></a>字符串长度</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strlen(sStr1)
+sStr1 &#x3D; &#39;strlen&#39;
+print len(sStr1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="将字符串中的大小写转换"><a href="#将字符串中的大小写转换" class="headerlink" title="将字符串中的大小写转换"></a>将字符串中的大小写转换</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">S.lower() #小写 
 S.upper() #大写 
 S.swapcase() #大小写互换 
 S.capitalize() #首字母大写 
-String.capwords(S) </code></pre>
+String.capwords(S) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>它把S用split()函数分开，然后用capitalize()把首字母变成大写，最后用join()合并到一起 </p>
 </blockquote>
 <p>实例：</p>
-<pre><code>#strlwr(sStr1)
-sStr1 = &#39;JCstrlwr&#39;
-sStr1 = sStr1.upper()
-#sStr1 = sStr1.lower()
-print sStr1</code></pre>
-<h3 id="追加指定长度的字符串"><a href="#追加指定长度的字符串" class="headerlink" title="追加指定长度的字符串"></a>追加指定长度的字符串</h3><pre><code>#strncat(sStr1,sStr2,n)
-sStr1 = &#39;12345&#39;
-sStr2 = &#39;abcdef&#39;
-n = 3
-sStr1 += sStr2[0:n]
-print sStr1</code></pre>
-<h3 id="字符串指定长度比较"><a href="#字符串指定长度比较" class="headerlink" title="字符串指定长度比较"></a>字符串指定长度比较</h3><pre><code>#strncmp(sStr1,sStr2,n)
-sStr1 = &#39;12345&#39;
-sStr2 = &#39;123bc&#39;
-n = 3
-print cmp(sStr1[0:n],sStr2[0:n])</code></pre>
-<h3 id="复制指定长度的字符"><a href="#复制指定长度的字符" class="headerlink" title="复制指定长度的字符"></a>复制指定长度的字符</h3><pre><code>#strncpy(sStr1,sStr2,n)
-sStr1 = &#39;&#39;
-sStr2 = &#39;12345&#39;
-n = 3
-sStr1 = sStr2[0:n]
-print sStr1</code></pre>
-<h3 id="将字符串前n个字符替换为指定的字符"><a href="#将字符串前n个字符替换为指定的字符" class="headerlink" title="将字符串前n个字符替换为指定的字符"></a>将字符串前n个字符替换为指定的字符</h3><pre><code>#strnset(sStr1,ch,n)
-sStr1 = &#39;12345&#39;
-ch = &#39;r&#39;
-n = 3
-sStr1 = n * ch + sStr1[3:]
-print sStr1</code></pre>
-<h3 id="扫描字符串"><a href="#扫描字符串" class="headerlink" title="扫描字符串"></a>扫描字符串</h3><pre><code>#strpbrk(sStr1,sStr2)
-sStr1 = &#39;cekjgdklab&#39;
-sStr2 = &#39;gka&#39;
-nPos = -1
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">#strlwr(sStr1)
+sStr1 &#x3D; &#39;JCstrlwr&#39;
+sStr1 &#x3D; sStr1.upper()
+#sStr1 &#x3D; sStr1.lower()
+print sStr1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="追加指定长度的字符串"><a href="#追加指定长度的字符串" class="headerlink" title="追加指定长度的字符串"></a>追加指定长度的字符串</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strncat(sStr1,sStr2,n)
+sStr1 &#x3D; &#39;12345&#39;
+sStr2 &#x3D; &#39;abcdef&#39;
+n &#x3D; 3
+sStr1 +&#x3D; sStr2[0:n]
+print sStr1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="字符串指定长度比较"><a href="#字符串指定长度比较" class="headerlink" title="字符串指定长度比较"></a>字符串指定长度比较</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strncmp(sStr1,sStr2,n)
+sStr1 &#x3D; &#39;12345&#39;
+sStr2 &#x3D; &#39;123bc&#39;
+n &#x3D; 3
+print cmp(sStr1[0:n],sStr2[0:n])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="复制指定长度的字符"><a href="#复制指定长度的字符" class="headerlink" title="复制指定长度的字符"></a>复制指定长度的字符</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strncpy(sStr1,sStr2,n)
+sStr1 &#x3D; &#39;&#39;
+sStr2 &#x3D; &#39;12345&#39;
+n &#x3D; 3
+sStr1 &#x3D; sStr2[0:n]
+print sStr1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="将字符串前n个字符替换为指定的字符"><a href="#将字符串前n个字符替换为指定的字符" class="headerlink" title="将字符串前n个字符替换为指定的字符"></a>将字符串前n个字符替换为指定的字符</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strnset(sStr1,ch,n)
+sStr1 &#x3D; &#39;12345&#39;
+ch &#x3D; &#39;r&#39;
+n &#x3D; 3
+sStr1 &#x3D; n * ch + sStr1[3:]
+print sStr1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="扫描字符串"><a href="#扫描字符串" class="headerlink" title="扫描字符串"></a>扫描字符串</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strpbrk(sStr1,sStr2)
+sStr1 &#x3D; &#39;cekjgdklab&#39;
+sStr2 &#x3D; &#39;gka&#39;
+nPos &#x3D; -1
 for c in sStr1:
     if c in sStr2:
-        nPos = sStr1.index(c)
+        nPos &#x3D; sStr1.index(c)
         break
-print nPos</code></pre>
-<h3 id="翻转字符串"><a href="#翻转字符串" class="headerlink" title="翻转字符串"></a>翻转字符串</h3><pre><code>#strrev(sStr1)
-sStr1 = &#39;abcdefg&#39;
-sStr1 = sStr1[::-1]
-print sStr1</code></pre>
-<h3 id="查找字符串"><a href="#查找字符串" class="headerlink" title="查找字符串"></a>查找字符串</h3><pre><code>#strstr(sStr1,sStr2)
-sStr1 = &#39;abcdefg&#39;
-sStr2 = &#39;cde&#39;
-print sStr1.find(sStr2)</code></pre>
-<h3 id="分割字符串"><a href="#分割字符串" class="headerlink" title="分割字符串"></a>分割字符串</h3><pre><code>#strtok(sStr1,sStr2)
-sStr1 = &#39;ab,cde,fgh,ijk&#39;
-sStr2 = &#39;,&#39;
-sStr1 = sStr1[sStr1.find(sStr2) + 1:]
+print nPos<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="翻转字符串"><a href="#翻转字符串" class="headerlink" title="翻转字符串"></a>翻转字符串</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strrev(sStr1)
+sStr1 &#x3D; &#39;abcdefg&#39;
+sStr1 &#x3D; sStr1[::-1]
+print sStr1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="查找字符串"><a href="#查找字符串" class="headerlink" title="查找字符串"></a>查找字符串</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strstr(sStr1,sStr2)
+sStr1 &#x3D; &#39;abcdefg&#39;
+sStr2 &#x3D; &#39;cde&#39;
+print sStr1.find(sStr2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="分割字符串"><a href="#分割字符串" class="headerlink" title="分割字符串"></a>分割字符串</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">#strtok(sStr1,sStr2)
+sStr1 &#x3D; &#39;ab,cde,fgh,ijk&#39;
+sStr2 &#x3D; &#39;,&#39;
+sStr1 &#x3D; sStr1[sStr1.find(sStr2) + 1:]
 print sStr1
 #或者
-s = &#39;ab,cde,fgh,ijk&#39;
-print(s.split(&#39;,&#39;))</code></pre>
-<h3 id="连接字符串-1"><a href="#连接字符串-1" class="headerlink" title="连接字符串"></a>连接字符串</h3><pre><code>delimiter = &#39;,&#39;
-mylist = [&#39;Brazil&#39;, &#39;Russia&#39;, &#39;India&#39;, &#39;China&#39;]
-print delimiter.join(mylist)</code></pre>
-<h3 id="PHP-中-addslashes-的实现"><a href="#PHP-中-addslashes-的实现" class="headerlink" title="PHP 中 addslashes 的实现"></a>PHP 中 addslashes 的实现</h3><pre><code>def addslashes(s):
-    d = &#123;&#39;&quot;&#39;:&#39;\\&quot;&#39;, &quot;&#39;&quot;:&quot;\\&#39;&quot;, &quot;\0&quot;:&quot;\\\0&quot;, &quot;\\&quot;:&quot;\\\\&quot;&#125;
+s &#x3D; &#39;ab,cde,fgh,ijk&#39;
+print(s.split(&#39;,&#39;))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="连接字符串-1"><a href="#连接字符串-1" class="headerlink" title="连接字符串"></a>连接字符串</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">delimiter &#x3D; &#39;,&#39;
+mylist &#x3D; [&#39;Brazil&#39;, &#39;Russia&#39;, &#39;India&#39;, &#39;China&#39;]
+print delimiter.join(mylist)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="PHP-中-addslashes-的实现"><a href="#PHP-中-addslashes-的实现" class="headerlink" title="PHP 中 addslashes 的实现"></a>PHP 中 addslashes 的实现</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">def addslashes(s):
+    d &#x3D; &#123;&#39;&quot;&#39;:&#39;\\&quot;&#39;, &quot;&#39;&quot;:&quot;\\&#39;&quot;, &quot;\0&quot;:&quot;\\\0&quot;, &quot;\\&quot;:&quot;\\\\&quot;&#125;
     return &#39;&#39;.join(d.get(c, c) for c in s)
 
-s = &quot;John &#39;Johny&#39; Doe (a.k.a. \&quot;Super Joe\&quot;)\\\0&quot;
+s &#x3D; &quot;John &#39;Johny&#39; Doe (a.k.a. \&quot;Super Joe\&quot;)\\\0&quot;
 print s
-print addslashes(s)</code></pre>
-<h3 id="只显示字母与数字"><a href="#只显示字母与数字" class="headerlink" title="只显示字母与数字"></a>只显示字母与数字</h3><pre><code>def OnlyCharNum(s,oth=&#39;&#39;):
-    s2 = s.lower();
-    fomart = &#39;abcdefghijklmnopqrstuvwxyz0123456789&#39;
+print addslashes(s)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="只显示字母与数字"><a href="#只显示字母与数字" class="headerlink" title="只显示字母与数字"></a>只显示字母与数字</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">def OnlyCharNum(s,oth&#x3D;&#39;&#39;):
+    s2 &#x3D; s.lower();
+    fomart &#x3D; &#39;abcdefghijklmnopqrstuvwxyz0123456789&#39;
     for c in s2:
         if not c in fomart:
-            s = s.replace(c,&#39;&#39;);
+            s &#x3D; s.replace(c,&#39;&#39;);
     return s;
 
-print(OnlyStr(&quot;a000 aa-b&quot;))</code></pre>
-<h3 id="截取字符串"><a href="#截取字符串" class="headerlink" title="截取字符串"></a>截取字符串</h3><pre><code>str = &#39;0123456789′
+print(OnlyStr(&quot;a000 aa-b&quot;))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="截取字符串"><a href="#截取字符串" class="headerlink" title="截取字符串"></a>截取字符串</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">str &#x3D; &#39;0123456789′
 print str[0:3] #截取第一位到第三位的字符
 print str[:] #截取字符串的全部字符
 print str[6:] #截取第七个字符到结尾
@@ -645,12 +649,12 @@ print str[-1] #截取倒数第一个字符
 print str[::-1] #创造一个与原字符串顺序相反的字符串
 print str[-3:-1] #截取倒数第三位与倒数第一位之前的字符
 print str[-3:] #截取倒数第三位到结尾
-print str[:-5:-3] #逆序截取，具体啥意思没搞明白？</code></pre>
-<h3 id="字符串在输出时的对齐"><a href="#字符串在输出时的对齐" class="headerlink" title="字符串在输出时的对齐"></a>字符串在输出时的对齐</h3><pre><code>S.ljust(width,[fillchar]) </code></pre>
+print str[:-5:-3] #逆序截取，具体啥意思没搞明白？<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="字符串在输出时的对齐"><a href="#字符串在输出时的对齐" class="headerlink" title="字符串在输出时的对齐"></a>字符串在输出时的对齐</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">S.ljust(width,[fillchar]) <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>输出width个字符，S左对齐，不足部分用fillchar填充，默认的为空格。<br>S.rjust(width,[fillchar]) #右对齐<br>S.center(width, [fillchar]) #中间对齐<br>S.zfill(width) #把S变成width长，并在右对齐，不足部分用0补足</p>
 </blockquote>
-<h3 id="字符串中的搜索和替换"><a href="#字符串中的搜索和替换" class="headerlink" title="字符串中的搜索和替换"></a>字符串中的搜索和替换</h3><pre><code>S.find(substr, [start, [end]]) 
+<h3 id="字符串中的搜索和替换"><a href="#字符串中的搜索和替换" class="headerlink" title="字符串中的搜索和替换"></a>字符串中的搜索和替换</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">S.find(substr, [start, [end]]) 
 #返回S中出现substr的第一个字母的标号，如果S中没有substr则返回-1。start和end作用就相当于在S[start:end]中搜索 
 S.index(substr, [start, [end]]) 
 #与find()相同，只是在S中没有substr时，会返回一个运行时错误 
@@ -665,21 +669,21 @@ S.strip([chars])
 S.lstrip([chars]) 
 S.rstrip([chars]) 
 S.expandtabs([tabsize]) 
-#把S中的tab字符替换没空格，每个tab替换为tabsize个空格，默认是8个</code></pre>
-<h3 id="字符串的分割和组合"><a href="#字符串的分割和组合" class="headerlink" title="字符串的分割和组合"></a>字符串的分割和组合</h3><pre><code>S.split([sep, [maxsplit]]) 
+#把S中的tab字符替换没空格，每个tab替换为tabsize个空格，默认是8个<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="字符串的分割和组合"><a href="#字符串的分割和组合" class="headerlink" title="字符串的分割和组合"></a>字符串的分割和组合</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">S.split([sep, [maxsplit]]) 
 #以sep为分隔符，把S分成一个list。maxsplit表示分割的次数。默认的分割符为空白字符 
 S.rsplit([sep, [maxsplit]]) 
 S.splitlines([keepends]) 
 #把S按照行分割符分为一个list，keepends是一个bool值，如果为真每行后而会保留行分割符。 
-S.join(seq) #把seq代表的序列──字符串序列，用S连接起来</code></pre>
-<h3 id="字符串的mapping，这一功能包含两个函数"><a href="#字符串的mapping，这一功能包含两个函数" class="headerlink" title="字符串的mapping，这一功能包含两个函数"></a>字符串的mapping，这一功能包含两个函数</h3><pre><code>String.maketrans(from, to) 
+S.join(seq) #把seq代表的序列──字符串序列，用S连接起来<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="字符串的mapping，这一功能包含两个函数"><a href="#字符串的mapping，这一功能包含两个函数" class="headerlink" title="字符串的mapping，这一功能包含两个函数"></a>字符串的mapping，这一功能包含两个函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">String.maketrans(from, to) 
 #返回一个256个字符组成的翻译表，其中from中的字符被一一对应地转换成to，所以from和to必须是等长的。 
-S.translate(table[,deletechars]) </code></pre>
+S.translate(table[,deletechars]) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><code>使用上面的函数产后的翻译表，把S进行翻译，并把deletechars中有的字符删掉。需要注意的是，如果S为unicode字符串，那么就不支持 deletechars参数，可以使用把某个字符翻译为None的方式实现相同的功能。此外还可以使用codecs模块的功能来创建更加功能强大的翻译表。 </code></p>
-<h3 id="字符串还有一对编码和解码的函数"><a href="#字符串还有一对编码和解码的函数" class="headerlink" title="字符串还有一对编码和解码的函数"></a>字符串还有一对编码和解码的函数</h3><pre><code>S.encode([encoding,[errors]]) </code></pre>
+<h3 id="字符串还有一对编码和解码的函数"><a href="#字符串还有一对编码和解码的函数" class="headerlink" title="字符串还有一对编码和解码的函数"></a>字符串还有一对编码和解码的函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">S.encode([encoding,[errors]]) <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code># 其中encoding可以有多种值，比如gb2312 gbk gb18030 bz2 zlib big5 bzse64等都支持。errors默认值为&quot;strict&quot;，意思是UnicodeError。可能的值还有&#39;ignore&#39;, &#39;replace&#39;, &#39;xmlcharrefreplace&#39;, &#39;backslashreplace&#39; 和所有的通过codecs.register_error注册的值。这一部分内容涉及codecs模块，不是特明白 </code>    </p>
-<pre><code>S.decode([encoding,[errors]])</code></pre>
-<h3 id="字符串的测试、判断函数，这一类函数在string模块中没有，这些函数返回的都是bool值"><a href="#字符串的测试、判断函数，这一类函数在string模块中没有，这些函数返回的都是bool值" class="headerlink" title="字符串的测试、判断函数，这一类函数在string模块中没有，这些函数返回的都是bool值"></a>字符串的测试、判断函数，这一类函数在string模块中没有，这些函数返回的都是bool值</h3><pre><code>S.startswith(prefix[,start[,end]]) 
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">S.decode([encoding,[errors]])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="字符串的测试、判断函数，这一类函数在string模块中没有，这些函数返回的都是bool值"><a href="#字符串的测试、判断函数，这一类函数在string模块中没有，这些函数返回的都是bool值" class="headerlink" title="字符串的测试、判断函数，这一类函数在string模块中没有，这些函数返回的都是bool值"></a>字符串的测试、判断函数，这一类函数在string模块中没有，这些函数返回的都是bool值</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">S.startswith(prefix[,start[,end]]) 
 #是否以prefix开头 
 S.endswith(suffix[,start[,end]]) 
 #以suffix结尾 
@@ -690,70 +694,79 @@ S.isdigit() #是否全是数字，并至少有一个字符
 S.isspace() #是否全是空白字符，并至少有一个字符 
 S.islower() #S中的字母是否全是小写 
 S.isupper() #S中的字母是否便是大写 
-S.istitle() #S是否是首字母大写的</code></pre>
+S.istitle() #S是否是首字母大写的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="字符串类型转换函数，这几个函数只在string模块中有"><a href="#字符串类型转换函数，这几个函数只在string模块中有" class="headerlink" title="字符串类型转换函数，这几个函数只在string模块中有"></a>字符串类型转换函数，这几个函数只在string模块中有</h3><p><code>base默认为10，如果为0,那么s就可以是012或0x23这种形式的字符串，如果是16那么s就只能是0x23或0X12这种形式的字符串 </code></p>
-<pre><code>string.atoi(s[,base]) 
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">string.atoi(s[,base]) 
 string.atol(s[,base]) #转成long 
-string.atof(s[,base]) #转成float</code></pre>
+string.atof(s[,base]) #转成float<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>这里再强调一次，字符串对象是不可改变的，也就是说在python创建一个字符串后，你不能把这个字符中的某一部分改变。任何上面的函数改变了字符串后，都会返回一个新的字符串，原字串并没有变。其实这也是有变通的办法的，可以用S=list(S)这个函数把S变为由单个字符为成员的list，这样的话就可以使用S[3]=’a’的方式改变值，然后再使用S=” “.join(S)还原成字符串</p>
 </blockquote>
-<h3 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h3><h4 id="以什么来分割"><a href="#以什么来分割" class="headerlink" title="以什么来分割"></a>以什么来分割</h4><pre><code>a = ‘测试\t&#39;
-a.stp;it(&#39;\t&#39;)</code></pre>
-<h2 id="unicode及编码"><a href="#unicode及编码" class="headerlink" title="unicode及编码"></a>unicode及编码</h2><h3 id="unicode转中文"><a href="#unicode转中文" class="headerlink" title="unicode转中文"></a>unicode转中文</h3><pre><code>decodedUni = yourStr.decode(&quot;unicode-escape&quot;)</code></pre>
-<h3 id="requests乱码"><a href="#requests乱码" class="headerlink" title="requests乱码"></a>requests乱码</h3><pre><code>response.encoding = &#39;utf-8&#39;</code></pre>
-<h3 id="bery转-中文"><a href="#bery转-中文" class="headerlink" title="bery转 中文"></a>bery转 中文</h3><pre><code>eval(i.decode(&#39;utf-8&#39;)) # 转化成字典格式 </code></pre>
-<h2 id="时间问题"><a href="#时间问题" class="headerlink" title="时间问题"></a>时间问题</h2><h3 id="Python时间，日期，时间戳之间转换"><a href="#Python时间，日期，时间戳之间转换" class="headerlink" title="Python时间，日期，时间戳之间转换"></a>Python时间，日期，时间戳之间转换</h3><h4 id="将字符串的时间转换为时间戳"><a href="#将字符串的时间转换为时间戳" class="headerlink" title="将字符串的时间转换为时间戳"></a>将字符串的时间转换为时间戳</h4><pre><code>a = &quot;2013-10-10 23:40:00&quot;
+<h3 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h3><h4 id="以什么来分割"><a href="#以什么来分割" class="headerlink" title="以什么来分割"></a>以什么来分割</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">a &#x3D; ‘测试\t&#39;
+a.stp;it(&#39;\t&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="unicode及编码"><a href="#unicode及编码" class="headerlink" title="unicode及编码"></a>unicode及编码</h2><h3 id="unicode转中文"><a href="#unicode转中文" class="headerlink" title="unicode转中文"></a>unicode转中文</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">    decodedUni &#x3D; yourStr.decode(&quot;unicode-escape&quot;)
+### requests乱码
+&#96;&#96;&#96;python 
+    response.encoding &#x3D; &#39;utf-8&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="bery转-中文"><a href="#bery转-中文" class="headerlink" title="bery转 中文"></a>bery转 中文</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">eval(i.decode(&#39;utf-8&#39;)) # 转化成字典格式 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="时间问题"><a href="#时间问题" class="headerlink" title="时间问题"></a>时间问题</h2><h3 id="Python时间，日期，时间戳之间转换"><a href="#Python时间，日期，时间戳之间转换" class="headerlink" title="Python时间，日期，时间戳之间转换"></a>Python时间，日期，时间戳之间转换</h3><h4 id="将字符串的时间转换为时间戳"><a href="#将字符串的时间转换为时间戳" class="headerlink" title="将字符串的时间转换为时间戳"></a>将字符串的时间转换为时间戳</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">a &#x3D; &quot;2013-10-10 23:40:00&quot;
 # 将其转换为时间数组
 import time
-timeArray = time.strptime(a, &quot;%Y-%m-%d %H:%M:%S&quot;)
+timeArray &#x3D; time.strptime(a, &quot;%Y-%m-%d %H:%M:%S&quot;)
 # 转换为时间戳:
-timeStamp = int(time.mktime(timeArray))
-timeStamp == 1381419600</code></pre>
-<h4 id="字符串格式更改"><a href="#字符串格式更改" class="headerlink" title="字符串格式更改"></a>字符串格式更改</h4><pre><code># 如a = &quot;2013-10-10 23:40:00&quot;,想改为 a = &quot;2013/10/10 23:40:00&quot;
+timeStamp &#x3D; int(time.mktime(timeArray))
+timeStamp &#x3D;&#x3D; 1381419600<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="字符串格式更改"><a href="#字符串格式更改" class="headerlink" title="字符串格式更改"></a>字符串格式更改</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 如a &#x3D; &quot;2013-10-10 23:40:00&quot;,想改为 a &#x3D; &quot;2013&#x2F;10&#x2F;10 23:40:00&quot;
 # 方法:先转换为时间数组,然后转换为其他格式
-timeArray = time.strptime(a, &quot;%Y-%m-%d %H:%M:%S&quot;)
-otherStyleTime = time.strftime(&quot;%Y/%m/%d %H:%M:%S&quot;, timeArray)</code></pre>
-<h2 id="时间戳转换为指定格式日期"><a href="#时间戳转换为指定格式日期" class="headerlink" title="时间戳转换为指定格式日期:"></a>时间戳转换为指定格式日期:</h2><h4 id="利用localtime-转换为时间数组-然后格式化为需要的格式-如"><a href="#利用localtime-转换为时间数组-然后格式化为需要的格式-如" class="headerlink" title="利用localtime()转换为时间数组,然后格式化为需要的格式,如"></a>利用localtime()转换为时间数组,然后格式化为需要的格式,如</h4><pre><code>timeStamp = 1381419600
-timeArray = time.localtime(timeStamp)
-otherStyleTime = time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, timeArray)
-otherStyletime == &quot;2013-10-10 23:40:00&quot;</code></pre>
+timeArray &#x3D; time.strptime(a, &quot;%Y-%m-%d %H:%M:%S&quot;)
+otherStyleTime &#x3D; time.strftime(&quot;%Y&#x2F;%m&#x2F;%d %H:%M:%S&quot;, timeArray)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="时间戳转换为指定格式日期"><a href="#时间戳转换为指定格式日期" class="headerlink" title="时间戳转换为指定格式日期:"></a>时间戳转换为指定格式日期:</h2><h4 id="利用localtime-转换为时间数组-然后格式化为需要的格式-如"><a href="#利用localtime-转换为时间数组-然后格式化为需要的格式-如" class="headerlink" title="利用localtime()转换为时间数组,然后格式化为需要的格式,如"></a>利用localtime()转换为时间数组,然后格式化为需要的格式,如</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">timeStamp &#x3D; 1381419600
+timeArray &#x3D; time.localtime(timeStamp)
+otherStyleTime &#x3D; time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, timeArray)
+otherStyletime &#x3D;&#x3D; &quot;2013-10-10 23:40:00&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>另一种方法：</p>
-<pre><code>import datetime
-timeStamp = 1381419600
-dateArray = datetime.datetime.utcfromtimestamp(timeStamp)
-otherStyleTime = dateArray.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)
-otherStyletime == &quot;2013-10-10 23:40:00&quot;</code></pre>
-<h4 id="获取当前时间并转换为指定日期格式"><a href="#获取当前时间并转换为指定日期格式" class="headerlink" title="获取当前时间并转换为指定日期格式"></a>获取当前时间并转换为指定日期格式</h4><pre><code>import time
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import datetime
+timeStamp &#x3D; 1381419600
+dateArray &#x3D; datetime.datetime.utcfromtimestamp(timeStamp)
+otherStyleTime &#x3D; dateArray.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)
+otherStyletime &#x3D;&#x3D; &quot;2013-10-10 23:40:00&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="获取当前时间并转换为指定日期格式"><a href="#获取当前时间并转换为指定日期格式" class="headerlink" title="获取当前时间并转换为指定日期格式"></a>获取当前时间并转换为指定日期格式</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">import time
 # 获得当前时间时间戳
-now = int(time.time())  -&gt;这是时间戳
+now &#x3D; int(time.time())  -&gt;这是时间戳
 # 转换为其他日期格式,如:&quot;%Y-%m-%d %H:%M:%S&quot;
-timeArray = time.localtime(timeStamp)
-otherStyleTime = time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, timeArray)</code></pre>
+timeArray &#x3D; time.localtime(timeStamp)
+otherStyleTime &#x3D; time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, timeArray)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>另一种方法：</p>
-<pre><code>import datetime
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import datetime
 # 获得当前时间
-now = datetime.datetime.now()  -&gt;这是时间数组格式
+now &#x3D; datetime.datetime.now()  -&gt;这是时间数组格式
 # 转换为指定的格式:
-otherStyleTime = now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)</code></pre>
-<h4 id="获得三天前的时间"><a href="#获得三天前的时间" class="headerlink" title="获得三天前的时间"></a>获得三天前的时间</h4><pre><code>import time
+otherStyleTime &#x3D; now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="获得三天前的时间"><a href="#获得三天前的时间" class="headerlink" title="获得三天前的时间"></a>获得三天前的时间</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">import time
 import datetime
 # 先获得时间数组格式的日期
-threeDayAgo = (datetime.datetime.now() - datetime.timedelta(days = 3))
+threeDayAgo &#x3D; (datetime.datetime.now() - datetime.timedelta(days &#x3D; 3))
 # 转换为时间戳:
-timeStamp = int(time.mktime(threeDayAgo.timetuple()))
+timeStamp &#x3D; int(time.mktime(threeDayAgo.timetuple()))
 # 转换为其他字符串格式:
-otherStyleTime = threeDayAgo.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)</code></pre>
+otherStyleTime &#x3D; threeDayAgo.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>注:timedelta()的参数有:days,hours,seconds,microseconds</code></p>
-<h4 id="给定时间戳-计算该时间的几天前时间"><a href="#给定时间戳-计算该时间的几天前时间" class="headerlink" title="给定时间戳,计算该时间的几天前时间:"></a>给定时间戳,计算该时间的几天前时间:</h4><pre><code>timeStamp = 1381419600
+<h4 id="给定时间戳-计算该时间的几天前时间"><a href="#给定时间戳-计算该时间的几天前时间" class="headerlink" title="给定时间戳,计算该时间的几天前时间:"></a>给定时间戳,计算该时间的几天前时间:</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">timeStamp &#x3D; 1381419600
 # 先转换为datetime
 import datetime
 import time
-dateArray = datetime.datetime.utcfromtimestamp(timeStamp)
-threeDayAgo = dateArray - datetime.timedelta(days = 3)</code></pre>
-<h4 id="获取当前时间并格式化"><a href="#获取当前时间并格式化" class="headerlink" title="获取当前时间并格式化"></a>获取当前时间并格式化</h4><pre><code>time.strftime(&quot;%Y%m%d%H%M%S&quot;, time.localtime())</code></pre>
-<h2 id="scrapy转换问题"><a href="#scrapy转换问题" class="headerlink" title="scrapy转换问题"></a>scrapy转换问题</h2><pre><code>f = response.body
-date = f.decode(&#39;utf-8&#39;)</code></pre>
+dateArray &#x3D; datetime.datetime.utcfromtimestamp(timeStamp)
+threeDayAgo &#x3D; dateArray - datetime.timedelta(days &#x3D; 3)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="获取当前时间并格式化"><a href="#获取当前时间并格式化" class="headerlink" title="获取当前时间并格式化"></a>获取当前时间并格式化</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">time.strftime(&quot;%Y%m%d%H%M%S&quot;, time.localtime())<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="scrapy转换问题"><a href="#scrapy转换问题" class="headerlink" title="scrapy转换问题"></a>scrapy转换问题</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">f &#x3D; response.body
+date &#x3D; f.decode(&#39;utf-8&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+
+
+
 
                 
             </div>
@@ -1665,7 +1678,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.6k</span>&nbsp;字
+                class="white-color">3.7k</span>&nbsp;字
             
             
             
