@@ -471,14 +471,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    13
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    8 分
                 </div>
                 
 
@@ -501,9 +501,311 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h1><h3 id="查看所有索引"><a href="#查看所有索引" class="headerlink" title="查看所有索引"></a>查看所有索引</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo&#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="查看所有索引"><a href="#查看所有索引" class="headerlink" title="查看所有索引"></a>查看所有索引</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET _cat&#x2F;indices?v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="查看user索引的内容"><a href="#查看user索引的内容" class="headerlink" title="查看user索引的内容"></a>查看user索引的内容</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET users&#x2F;_search<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="分组，排序"><a href="#分组，排序" class="headerlink" title="分组，排序"></a>分组，排序</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET fy_lawyer_doc_item&#x2F;_search
+&#123;
+  &quot;_source&quot;: [&quot;name&quot;,&quot;category_names&quot;],
+  &quot;query&quot;: &#123;
+    &quot;bool&quot;: &#123; 
+      &quot;must&quot;: [
+        &#123;&quot;term&quot; : &#123;&quot;name&quot; : &quot;张峰&quot;&#125;&#125;,
+        &#123;&quot;term&quot;: &#123;&quot;office.name&quot; : &quot;郯城胜利法律服务所&quot;&#125;&#125;
+                ]
+              &#125;
+            &#125;,
+    &quot;aggs&quot;:
+    &#123;
+      &quot;agg_data&quot;: &#123;
+        &quot;terms&quot;: &#123;
+          &quot;field&quot;: &quot;category_names&quot;
+        &#125;
+      &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>使用aggs来分组，&quot;agg_data&quot;: &#123;         &quot;别名&quot;: &#123;           &quot;field&quot;: &quot;排序字段&quot;         &#125;       &#125;     &#125;</code></p>
+<p>使用年排序</p>
+<pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET fy_lawyer_doc_item&#x2F;_search
+&#123;
+  &quot;_source&quot;: [&quot;name&quot;,&quot;trial_date_time&quot;],
+  &quot;query&quot;: &#123;
+    &quot;bool&quot;: &#123; 
+      &quot;must&quot;: [
+        &#123;&quot;term&quot; : &#123;&quot;name&quot; : &quot;张峰&quot;&#125;&#125;,
+        &#123;&quot;term&quot;: &#123;&quot;office.name&quot; : &quot;郯城胜利法律服务所&quot;&#125;&#125;
+                ]
+              &#125;
+            &#125;,
+    &quot;aggs&quot;:
+    &#123;
+      &quot;time&quot;: &#123;
+        &quot;date_histogram&quot;:  &#123;
+          &quot;field&quot;: &quot;trial_date_time&quot;,
+          &quot;interval&quot;: &quot;year&quot;,
+           &quot;format&quot;: &quot;yyyy&quot;
+        &#125;
+      &#125;
+    &#125;
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="组合多个搜索条件"><a href="#组合多个搜索条件" class="headerlink" title="组合多个搜索条件"></a>组合多个搜索条件</h2><p><code> must:: 查询指定文档一定要被包含。</code><br><code>should:: 查询指定文档，有则可以为文档相关性加分。</code><br><code>must_not:: 查询指定文档一定不要被包含，不计算任何相关度分数</code><br><code>filter，仅仅只是按照搜索条件过滤出需要的数据而已，不计算任何相关度分数，对相关度没有任何影响</code><br><code>query，会去计算每个document相对于搜索条件的相关度，并按照相关度进行排序</code></p>
+<blockquote>
+<p>timeout：请求超时时长，限定在指定时长内响应（即使没查完）；<br>  from： 分页的起始行，默认0；<br>  size：分页大小；<br>  request_cache：是否缓存请求结果，默认true。<br>  terminate_after：限定每个分片取几个文档。如果设置，则响应将有一个布尔型字段terminated_early来指示查询执行是否实际已经terminate_early。缺省为no terminate_after；<br>  search_type：查询的执行方式，可选值dfs_query_then_fetch or query_then_fetch ，默认： query_then_fetch ；<br>  batched_reduce_size：一次在协调节点上应该减少的分片结果的数量。如果请求中的潜在分片数量可能很大，则应将此值用作保护机制以减少每个搜索请求的内存开销。</p>
+</blockquote>
+<pre class="line-numbers language-sdl" data-language="sdl"><code class="language-sdl">&#x2F;&#x2F; kibana 返回结果
+&#123;
+  &quot;took&quot; : 8,               &#x2F;&#x2F; 耗时，毫秒
+  &quot;timed_out&quot; : false,      &#x2F;&#x2F;是否超时
+  &quot;_shards&quot; : &#123;             &#x2F;&#x2F; 查询的分片数
+    &quot;total&quot; : 1,            
+    &quot;successful&quot; : 1,
+    &quot;skipped&quot; : 0,
+    &quot;failed&quot; : 0
+  &#125;,
+  &quot;hits&quot; : &#123;                &#x2F;&#x2F;命中结果
+    &quot;total&quot; : &#123;             &#x2F;&#x2F;总命中数
+      &quot;value&quot; : 10000,
+      &quot;relation&quot; : &quot;gte&quot;
+    &#125;,
+    &quot;max_score&quot; : 7.0387955, &#x2F;&#x2F;最高分数
+    &quot;hits&quot; : []              &#x2F;&#x2F;本页结果文档数组
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="query-match-查询语句，使用id排序"><a href="#query-match-查询语句，使用id排序" class="headerlink" title="query match 查询语句，使用id排序"></a>query match 查询语句，使用id排序</h3><h4 id="match-all-查询到所有文档，是没有查询条件下的默认语句。"><a href="#match-all-查询到所有文档，是没有查询条件下的默认语句。" class="headerlink" title="match all 查询到所有文档，是没有查询条件下的默认语句。"></a>match all 查询到所有文档，是没有查询条件下的默认语句。</h4><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET &#x2F;_search
+&#123;
+    &quot;query&quot;: &#123;
+        &quot;match_all&quot;: &#123;&#125;
+    &#125;,
+    &quot;sort&quot;: [
+    &#123;
+      &quot;id&quot;: &#123;
+        &quot;order&quot;: &quot;desc&quot;     &#x2F;&#x2F; ID 排序
+      &#125;
+    &#125;
+  ]
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="match-查询单个条件到所有文档-默认分词后用-or"><a href="#match-查询单个条件到所有文档-默认分词后用-or" class="headerlink" title="match 查询单个条件到所有文档 默认分词后用 or"></a>match 查询单个条件到所有文档 默认分词后用 or</h4><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET test&#x2F;_search
+&#123;
+  &quot;_source&quot;: [&quot;no&quot;,&quot;id&quot;],           &#x2F;&#x2F; 指定返回字段
+  &quot;query&quot;: &#123;
+    &quot;match&quot;: &#123;
+      &quot;title&quot;: &quot;医疗继承交通事故&quot;   
+    &#125;
+  &#125;
+  , &quot;highlight&quot;: &#123;
+     &quot;fields&quot; : &#123;
+            &quot;title&quot;: &#123;&#125;
+        &#125;
+  &#125;
+  , &quot;from&quot;: 2          &#x2F;&#x2F;分页开始值
+  , &quot;size&quot;: 3          &#x2F;&#x2F;分页结束值
+  
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="match-查询单个条件到所有文档分词后用-and"><a href="#match-查询单个条件到所有文档分词后用-and" class="headerlink" title="match 查询单个条件到所有文档分词后用 and"></a>match 查询单个条件到所有文档分词后用 and</h4><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET test&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;match&quot;: &#123;
+      &quot;title&quot;:&#123;
+        &quot;query&quot;: &quot;医疗继承交通&quot;
+        ,&quot;operator&quot;: &quot;and&quot;         &#x2F;&#x2F; 分词后用 and
+      &#125;
+    &#125;
+  &#125;
+  , &quot;highlight&quot;: &#123;
+     &quot;fields&quot; : &#123;
+            &quot;title&quot;: &#123;&#125;
+        &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="match-短句精确匹配"><a href="#match-短句精确匹配" class="headerlink" title="match 短句精确匹配"></a>match 短句精确匹配</h4><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">&#x2F;&#x2F; slop参数告诉match_phrase查询词条能够相隔多远时仍然将文档视为匹配
 
+GET test&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;match_phrase&quot;: &#123;
+      &quot;title&quot;: &#123;
+        &quot;query&quot;: &quot;交通婚姻继承&quot;
+        , &quot;slop&quot;: 2           
+      &#125;
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><big>匹配条件</big></p>
+<blockquote>
+<p>交通、婚姻和继承必须全部出现在某个字段中。<br>交通的位置必须比婚姻的位置大1。<br>婚姻的位置必须比继承的位置大2</p>
+</blockquote>
+<h4 id="multi-match-查询允许做match查询的基础上同时搜索多个字段，其中一个字匹配就可以"><a href="#multi-match-查询允许做match查询的基础上同时搜索多个字段，其中一个字匹配就可以" class="headerlink" title="multi_match 查询允许做match查询的基础上同时搜索多个字段，其中一个字匹配就可以"></a>multi_match 查询允许做match查询的基础上同时搜索多个字段，其中一个字匹配就可以</h4><p><code>1，best_fields: 希望完全匹配的文档占的评分比较高，则需要使用best_fields</code><br><code>2，most_fields：希望越多字段匹配的文档评分越高</code><br><code>3，cross_fields：希望这个词条的分词词汇是分配到不同字段中的</code></p>
+<pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET test&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;multi_match&quot;: &#123;
+      &quot;query&quot;: &quot;交通工伤合同赔偿&quot;,
+      &quot;fields&quot;: [&quot;no&quot;,&quot;title&quot;]
+      , &quot;type&quot;: &quot;best_fields&quot;
+      , &quot;tie_breaker&quot;: 0.3
+    &#125;
+  &#125;
+  
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="query-term-查询语句"><a href="#query-term-查询语句" class="headerlink" title="query term 查询语句"></a>query term 查询语句</h4><blockquote>
+<p>1，dterm term是代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇<br>2，对于多值字段,term 查询是包含，而不是等于. 比如数组值： [“1”,”2”]</p>
+</blockquote>
+<pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET test&#x2F;_search
+&#123;
+   &quot;explain&quot;: true,
+  &quot;query&quot;: &#123;
+    &quot;term&quot;: &#123;
+      &quot;no&quot;: &#123;
+        &quot;value&quot;: &quot;10000011268&quot;
+      &#125;
+    &#125;
+  &#125;
+&#125;
 
+&#x2F;&#x2F;使用term要确定的是这个字段是否“被分析”(analyzed)，默认的字符串是被分析的。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="多个条件查询"><a href="#多个条件查询" class="headerlink" title="多个条件查询"></a>多个条件查询</h3><h4 id="多个term条件查询，并且分组"><a href="#多个term条件查询，并且分组" class="headerlink" title="多个term条件查询，并且分组"></a>多个term条件查询，并且分组</h4><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET fy_lawyer_doc_item&#x2F;_search
+&#123;
+  &quot;size&quot;: 0,
+  &quot;query&quot;: &#123;
+    &quot;bool&quot;: &#123;
+      &quot;must&quot;: [
+        &#123;&quot;term&quot;: &#123;&quot;name&quot;: &quot;曹飞跃&quot;&#125;&#125;,
+        &#123;&quot;term&quot;: &#123;&quot;office_name.keyword&quot;: &quot;山西臻兴律师事务所&quot;&#125;&#125;
+      ]
+    &#125;
+  &#125;,
+  &quot;aggs&quot;: &#123;
+    &quot;provinceGroup&quot;: &#123;
+      &quot;terms&quot;: &#123;
+        &quot;field&quot;: &quot;court_province&quot;,
+        &quot;size&quot;: 10,
+        &#x2F;&#x2F; 这里按_count排个序
+        &quot;order&quot;: &#123;
+          &quot;_count&quot;: &quot;desc&quot;
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="terms-跟-term-有点类似，但-terms-允许指定多个匹配条件"><a href="#terms-跟-term-有点类似，但-terms-允许指定多个匹配条件" class="headerlink" title="terms 跟 term 有点类似，但 terms 允许指定多个匹配条件"></a>terms 跟 term 有点类似，但 terms 允许指定多个匹配条件</h4><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET test&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;terms&quot;: &#123;
+      &quot;id&quot;: [
+        &quot;1&quot;,
+        &quot;2&quot;
+      ]
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="bool联合查询"><a href="#bool联合查询" class="headerlink" title="bool联合查询"></a>bool联合查询</h4><blockquote>
+<p>1，must 文档必须完全匹配条件<br>2，should should下面会带一个以上的条件，至少满足一个条件，这个文档就符合should<br>3，must_not 文档必须不匹配条件</p>
+</blockquote>
+<pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET es_index&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+   &quot;bool&quot;: &#123;
+     &quot;must&quot;: [
+       &#123;
+         &quot;match_phrase&quot;: &#123;
+           &quot;text&quot;: &quot;雷杰&quot;
+         &#125;
+       &#125;,
+       &#123;
+         &quot;match_phrase&quot;: &#123;
+           &quot;text&quot;: &quot;雷静&quot;
+         &#125;
+       &#125;
+     ],
+     &quot;must_not&quot;: [
+       &#123;
+         &quot;match_phrase&quot;: &#123;
+           &quot;text&quot;: &quot;00000015号&quot;
+         &#125;
+       &#125;
+     ]
+   &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="filter-范围查询"><a href="#filter-范围查询" class="headerlink" title="filter 范围查询"></a>filter 范围查询</h3><blockquote>
+<p>1，gt :: 大于<br>2，gte:: 大于等于<br>3，lt :: 小于<br>4，lte:: 小于等于</p>
+</blockquote>
+<pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET es_index&#x2F;_search
+&#123;
+  &quot;_source&quot;: [&quot;id&quot;,&quot;case_type&quot;,&quot;text&quot;] ,
+  &quot;query&quot;: &#123;
+   &quot;bool&quot;: &#123;
+     &quot;must&quot;: [
+       &#123;
+         &quot;match_phrase&quot;: &#123;
+           &quot;text&quot;: &quot;房&quot;
+         &#125;
+       &#125;,
+       &#123;
+         &quot;match_phrase&quot;: &#123;
+           &quot;text&quot;: &quot;条款&quot;
+         &#125;
+       &#125;
+     ],
+     &quot;must_not&quot;: [
+       &#123;
+         &quot;match_phrase&quot;: &#123;
+           &quot;text&quot;: &quot;00000015号&quot;
+         &#125;
+       &#125;
+     ],
+     &quot;filter&quot;: [
+       &#123;
+         &quot;range&quot;: &#123;
+           &quot;id&quot;: &#123;
+             &quot;gte&quot;: 100
+           &#125;
+         &#125;
+       &#125;
+     ]
+   &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="不计分查询"><a href="#不计分查询" class="headerlink" title="不计分查询"></a>不计分查询</h4><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET es_order&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;constant_score&quot;: &#123;
+      &quot;filter&quot;: &#123;
+        &quot;term&quot;: &#123;
+          &quot;goods_type&quot;: &quot;在线咨询-1天咨询&quot;
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="日期查询"><a href="#日期查询" class="headerlink" title="日期查询"></a>日期查询</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET fy_lawyer_doc_item&#x2F;_search
+&#123;
+   &quot;query&quot;: &#123;
+        &quot;range&quot;: &#123;
+            &quot;trial_date_time&quot;: &#123;
+                &quot;gte&quot;: &quot;2018-06-01&quot;,
+                &quot;lte&quot;: &quot;now&quot;,
+                &quot;format&quot;: &quot;yyyy-MM-dd&quot;
+            &#125;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="查询字段为空"><a href="#查询字段为空" class="headerlink" title="查询字段为空"></a>查询字段为空</h3><p>查询不为空的字段去反</p>
+<pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">&#x2F;&#x2F; 查询office.id不存在的值
+GET fy_lawyer_doc_item&#x2F;_count
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;bool&quot;: &#123;
+      &quot;must_not&quot;: [
+        &#123;
+          &quot;exists&quot;: &#123;
+            &quot;field&quot;: &quot;office.id&quot;
+          &#125;
+        &#125;
+      ]
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1415,7 +1717,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.7k</span>&nbsp;字
+                class="white-color">5.5k</span>&nbsp;字
             
             
             
