@@ -471,14 +471,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -699,7 +699,7 @@ GET test&#x2F;_search
   &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="bool联合查询"><a href="#bool联合查询" class="headerlink" title="bool联合查询"></a>bool联合查询</h4><blockquote>
-<p>1，must 文档必须完全匹配条件<br>2，should should下面会带一个以上的条件，至少满足一个条件，这个文档就符合should<br>3，must_not 文档必须不匹配条件</p>
+<p>1，must 文档必须完全匹配条件，相当于and<br>2，should should下面会带一个以上的条件，至少满足一个条件，这个文档就符合should，相当于or<br>3，must_not 文档必须不匹配条件，相当于not</p>
 </blockquote>
 <pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET es_index&#x2F;_search
 &#123;
@@ -806,6 +806,29 @@ GET fy_lawyer_doc_item&#x2F;_count
     &#125;
   &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h3><h4 id="wildcard查询"><a href="#wildcard查询" class="headerlink" title="wildcard查询"></a>wildcard查询</h4><p>wildcard查询等于sql中的like语法，只是查询数据上加*</p>
+<pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET &#x2F;test1&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+   &quot;wildcard&quot;: &#123; 
+       &quot;message&quot;:&quot;*wu*&quot; 
+    &#125; 
+  &#125;
+&#125;
+···
+
+#### 正则查询
+regexp可以支持正则查询，比如查询短信内容中的验证码之类
+···dsl	
+GET &#x2F;test1&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+   &quot;regexp&quot;: &#123; 
+       &quot;message&quot;:&quot;xu[0-9]&quot; 
+    &#125; 
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -1411,18 +1434,17 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/22/kibana-chang-yong-ming-ling/">
+                <a href="/2021/04/23/kibana-chang-yong-ming-ling-er/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="kibana常用命令">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="kibana常用命令二">
                         
-                        <span class="card-title">kibana常用命令</span>
+                        <span class="card-title">kibana常用命令二</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1432,9 +1454,9 @@ gitment.render('gitment-content');
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-23
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1447,7 +1469,6 @@ gitment.render('gitment-content');
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1455,8 +1476,8 @@ gitment.render('gitment-content');
                         <span class="chip bg-color">ES</span>
                     </a>
                     
-                    <a href="/tags/kibana/">
-                        <span class="chip bg-color">kibana</span>
+                    <a href="/tags/Kibana/">
+                        <span class="chip bg-color">Kibana</span>
                     </a>
                     
                 </div>
@@ -1717,7 +1738,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.5k</span>&nbsp;字
+                class="white-color">6.6k</span>&nbsp;字
             
             
             

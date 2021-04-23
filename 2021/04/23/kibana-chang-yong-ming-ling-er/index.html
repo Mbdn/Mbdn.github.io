@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="RTX3090配合ubuntu18.4深度学习环境搭建, 爬虫,安卓逆向,神经网络">
+    <meta name="keywords" content="kibana常用命令二, 爬虫,安卓逆向,神经网络">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>RTX3090配合ubuntu18.4深度学习环境搭建 | Ladin</title>
+    <title>kibana常用命令二 | Ladin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">RTX3090配合ubuntu18.4深度学习环境搭建</h1>
+                    <h1 class="description center-align post-title">kibana常用命令二</h1>
                 </div>
             </div>
         </div>
@@ -433,12 +433,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">神经网络</span>
+                            <a href="/tags/ES/">
+                                <span class="chip bg-color">ES</span>
                             </a>
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/Kibana/">
+                                <span class="chip bg-color">Kibana</span>
                             </a>
                         
                     </div>
@@ -449,12 +449,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-category">
-                                神经网络
-                            </a>
-                        
-                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/linux/" class="post-category">
-                                linux
+                            <a href="/categories/ES/" class="post-category">
+                                ES
                             </a>
                         
                     </div>
@@ -466,7 +462,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-28
+                    2021-04-23
                 </div>
                 
 
@@ -475,14 +471,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4
+                    992
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -505,8 +501,97 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#环境<br>  ubuntu18.04</p>
+                <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="主要核心类型"><a href="#主要核心类型" class="headerlink" title="主要核心类型"></a>主要核心类型</h3><p>text——keyword<br><code>text</code> 可以用于分词，多用于“索引全文，产品描述<br><code>keywokr</code> 不可用于分词</p>
+<p><code>日期数据类型</code><br>date</p>
+<p><code>布尔数据类型</code><br>boolean</p>
+<p><code>二进制数据类型</code><br>binary</p>
+<p><code>范围数据类型</code><br>integer_range，float_range，long_range，double_range，date_range</p>
+<h3 id="复杂数据类型编辑"><a href="#复杂数据类型编辑" class="headerlink" title="复杂数据类型编辑"></a>复杂数据类型编辑</h3><p><code>对象数据类型</code><br>object 用于单个JSON对象</p>
+<p><code>嵌套数据类型</code><br>nested 用于JSON对象数组</p>
+<h3 id="地理数据类型编辑"><a href="#地理数据类型编辑" class="headerlink" title="地理数据类型编辑"></a>地理数据类型编辑</h3><p><code>地理位置数据类型</code><br>geo_point 纬度/经度积分</p>
+<p><code>地理形状数据类型</code><br>geo_shape 用于多边形等复杂形状</p>
+<h3 id="专业数据类型编辑"><a href="#专业数据类型编辑" class="headerlink" title="专业数据类型编辑"></a>专业数据类型编辑</h3><p><code>IP数据类型</code><br>ip 用于IPv4和IPv6地址</p>
+<p><code>完成数据类型</code><br>completion 提供自动完成建议</p>
+<p><code>令牌计数数据类型</code><br>token_count 计算字符串中令牌的数量<br>mapper-murmur3<br>murmur3 在索引时计算值的哈希并将其存储在索引中<br>mapper-annotated-text<br>annotated-text 索引包含特殊标记的文本（通常用于标识命名实体）</p>
+<h3 id="渗滤器类型"><a href="#渗滤器类型" class="headerlink" title="渗滤器类型"></a>渗滤器类型</h3><h4 id="接受来自query-dsl的查询"><a href="#接受来自query-dsl的查询" class="headerlink" title="接受来自query-dsl的查询"></a>接受来自query-dsl的查询</h4><h3 id="join-数据类型"><a href="#join-数据类型" class="headerlink" title="join 数据类型"></a>join 数据类型</h3><p>为同一索引内的文档定义父/子关系</p>
+<p>别名数据类型<br>为现有字段定义别名。</p>
+<h3 id="多字段编辑"><a href="#多字段编辑" class="headerlink" title="多字段编辑"></a>多字段编辑</h3><p>为不同的目的以不同的方式对同一字段建立索引通常很有用。例如，一个string字段可以映射为text用于全文搜索的字段，也可以映射为keyword用于排序或聚合的字段。或者，您可以使用standard分析仪， english分析仪和 french分析仪索引文本字段。<br>这是多领域的目的。大多数数据类型通过fields参数支持多字段。</p>
+<h1 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h1><h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><p><big>创建索引时请根据自身任务设计（字段是否分词，字段类型）</big></p>
+<pre class="line-numbers language-sdl" data-language="sdl"><code class="language-sdl">PUT test1
+&#123;
+    &quot;settings&quot; : &#123;
+        &quot;number_of_shards&quot; : 10,	# 设置的分片数，设置之后无法更改！
+        &quot;number_of_replicas&quot; : 1,	# 是设置es缓存的刷新时间，如果写入较为频繁，但是查询对实时性要求不那么高的话，可以设置高一些来提升性能。可以更改
+         &quot;refresh_interval&quot; : &quot;1s&quot;	# 是设置该索引库的副本数，建议设置为1以上。
+    &#125;,
+    &quot;mappings&quot; : &#123;
+        &quot;_doc&quot; : &#123;
+            &quot;properties&quot; : &#123;
+                &quot;uid&quot; : &#123; &quot;type&quot; : &quot;long&quot; &#125;,
+                &quot;phone&quot; : &#123; &quot;type&quot; : &quot;long&quot; &#125;,
+                &quot;message&quot; : &#123; &quot;type&quot; : &quot;keyword&quot; &#125;,
+                &quot;msgcode&quot; : &#123; &quot;type&quot; : &quot;long&quot; &#125;,
+                 &quot;sendtime&quot; : &#123;  
+                  &quot;type&quot; : &quot;date&quot;,
+                  &quot;format&quot; : &quot;yyyy-MM-dd HH:mm:ss&quot; 
+  &#125;
+                
+            &#125;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>1    store: true/false 表示该字段是否存储，默认存储。</code><br><code>2    doc_values: true/false 表示该字段是否参与聚合和排序。</code><br><code>3    index: true/false 表示该字段是否建立索引，默认建立。</code></p>
+<p><img src="/images/20210423140112.jpg"></p>
+<p>##写入数据<br>ElasticSearch可以直接新增数据，只要你指定了index(索引库名称)和type(类型)即可。在新增的时候你可以自己指定主键ID，也可以不指定，由 ElasticSearch自身生成。</p>
+<pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">新增数据命令示例:
 
+POST test1&#x2F;_doc&#x2F;1
+&#123;
+    &quot;uid&quot; : &quot;1234&quot;,
+    &quot;phone&quot; : &quot;12345678909&quot;,
+    &quot;message&quot; : &quot;qq&quot;,
+    &quot;msgcode&quot; : &quot;1&quot;,
+    &quot;sendtime&quot; : &quot;2019-03-14 01:57:04&quot;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><h3 id="通过主键ID进行修改"><a href="#通过主键ID进行修改" class="headerlink" title="通过主键ID进行修改"></a>通过主键ID进行修改</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">POST test1&#x2F;_doc&#x2F;1
+&#123;
+    &quot;uid&quot; : &quot;1234&quot;,
+    &quot;phone&quot; : &quot;12345678909&quot;,
+    &quot;message&quot; : &quot;qq&quot;,
+    &quot;msgcode&quot; : &quot;1&quot;,
+    &quot;sendtime&quot; : &quot;2019-03-14 01:57:04&quot;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="通过条件进行修改，相当于SQL更新语句的-where条件"><a href="#通过条件进行修改，相当于SQL更新语句的-where条件" class="headerlink" title="通过条件进行修改，相当于SQL更新语句的 where条件"></a>通过条件进行修改，相当于SQL更新语句的 where条件</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">POST test1&#x2F;_update_by_query
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;term&quot;: &#123;
+      &quot;phone&quot;: &quot;12345678909&quot;
+    &#125;
+  &#125; ,
+  &quot;script&quot;: &#123;
+    &quot;source&quot;: &quot;ctx._source[&#39;message&#39;] &#x3D; &#39;xuwujing&#39;&quot;
+  &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="根据主键删除数据"><a href="#根据主键删除数据" class="headerlink" title="根据主键删除数据"></a>根据主键删除数据</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">DELETE test1&#x2F;1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="根据条件删除数据的命令示例："><a href="#根据条件删除数据的命令示例：" class="headerlink" title="根据条件删除数据的命令示例："></a>根据条件删除数据的命令示例：</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">POST test&#x2F;_delete_by_query
+&#123;
+  &quot;query&quot;: &#123;
+      &quot;term&quot;: &#123;
+        &quot;phone&quot;: &quot;12345678909&quot;
+      &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="根据条件删除数据的命令"><a href="#根据条件删除数据的命令" class="headerlink" title="根据条件删除数据的命令"></a>根据条件删除数据的命令</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">POST test&#x2F;_delete_by_query
+&#123;
+  &quot;query&quot;: &#123;
+      &quot;term&quot;: &#123;
+        &quot;phone&quot;: &quot;12345678909&quot;
+      &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -532,7 +617,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cavalry.top/2021/01/28/rtx3090-pei-he-ubuntu18-4-shen-du-xue-xi-huan-jing-da-jian/">http://cavalry.top/2021/01/28/rtx3090-pei-he-ubuntu18-4-shen-du-xue-xi-huan-jing-da-jian/</a>
+                    <a href="http://cavalry.top/2021/04/23/kibana-chang-yong-ming-ling-er/">http://cavalry.top/2021/04/23/kibana-chang-yong-ming-ling-er/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -570,12 +655,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">神经网络</span>
+                                <a href="/tags/ES/">
+                                    <span class="chip bg-color">ES</span>
                                 </a>
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
+                                <a href="/tags/Kibana/">
+                                    <span class="chip bg-color">Kibana</span>
                                 </a>
                             
                         </div>
@@ -746,7 +831,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-01-28T10-53-40',
+        id: '2021-04-23T09-43-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -770,7 +855,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Thu Jan 28 2021 10:53:40 GMT+0800',
+    id: 'Fri Apr 23 2021 09:43:15 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -795,9 +880,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://cavalry.top/2021/01/28/rtx3090-pei-he-ubuntu18-4-shen-du-xue-xi-huan-jing-da-jian/';
-        this.page.identifier = '/2021/01/28/rtx3090-pei-he-ubuntu18-4-shen-du-xue-xi-huan-jing-da-jian/';
-        this.page.title = 'RTX3090配合ubuntu18.4深度学习环境搭建';
+        this.page.url = 'http://cavalry.top/2021/04/23/kibana-chang-yong-ming-ling-er/';
+        this.page.identifier = '/2021/04/23/kibana-chang-yong-ming-ling-er/';
+        this.page.title = 'kibana常用命令二';
     };
     let disqus_shortname = '';
 
@@ -1112,17 +1197,18 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/02/22/an-zhuo-ni-xiang-huan-jing-da-jian/">
+                <a href="/2021/04/23/kibana-chang-yong-ming-ling-er/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="安卓逆向环境搭建">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="kibana常用命令二">
                         
-                        <span class="card-title">安卓逆向环境搭建</span>
+                        <span class="card-title">kibana常用命令二</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1132,34 +1218,31 @@ gitment.render('gitment-content');
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/" class="post-category">
-                                    安卓逆向
+                            <a href="/categories/ES/" class="post-category">
+                                    ES
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%89%E5%8D%93/">
-                        <span class="chip bg-color">安卓</span>
+                    <a href="/tags/ES/">
+                        <span class="chip bg-color">ES</span>
                     </a>
                     
-                    <a href="/tags/%E5%AE%89%E5%85%A8/">
-                        <span class="chip bg-color">安全</span>
-                    </a>
-                    
-                    <a href="/tags/Frida/">
-                        <span class="chip bg-color">Frida</span>
+                    <a href="/tags/Kibana/">
+                        <span class="chip bg-color">Kibana</span>
                     </a>
                     
                 </div>
@@ -1173,13 +1256,13 @@ gitment.render('gitment-content');
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/25/hello-world/">
+                <a href="/2021/04/22/kibana-chang-yong-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="kibana常用命令">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">kibana常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1190,14 +1273,14 @@ gitment.render('gitment-content');
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B5%8B%E8%AF%95/" class="post-category">
-                                    测试
+                            <a href="/categories/ES/" class="post-category">
+                                    ES
                                 </a>
                             
                             
@@ -1207,8 +1290,12 @@ gitment.render('gitment-content');
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B5%8B%E8%AF%95/">
-                        <span class="chip bg-color">测试</span>
+                    <a href="/tags/ES/">
+                        <span class="chip bg-color">ES</span>
+                    </a>
+                    
+                    <a href="/tags/kibana/">
+                        <span class="chip bg-color">kibana</span>
                     </a>
                     
                 </div>
