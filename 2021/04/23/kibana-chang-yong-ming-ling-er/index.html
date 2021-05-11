@@ -471,7 +471,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    992
+                    1k
                 </div>
                 
 
@@ -575,7 +575,9 @@ POST test1&#x2F;_doc&#x2F;1
 &#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="根据主键删除数据"><a href="#根据主键删除数据" class="headerlink" title="根据主键删除数据"></a>根据主键删除数据</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">DELETE test1&#x2F;1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><p>删除fy_lawyer_doc_item索引</p>
+<pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">DELETE &#x2F;fy_lawyer_doc_item?pretty<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="根据主键删除数据"><a href="#根据主键删除数据" class="headerlink" title="根据主键删除数据"></a>根据主键删除数据</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">DELETE test1&#x2F;1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="根据条件删除数据的命令示例："><a href="#根据条件删除数据的命令示例：" class="headerlink" title="根据条件删除数据的命令示例："></a>根据条件删除数据的命令示例：</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">POST test&#x2F;_delete_by_query
 &#123;
   &quot;query&quot;: &#123;
@@ -1497,7 +1499,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7k</span>&nbsp;字
+                class="white-color">7.5k</span>&nbsp;字
             
             
             
