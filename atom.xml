@@ -6,7 +6,7 @@
   <link href="http://cavalry.top/atom.xml" rel="self"/>
   
   <link href="http://cavalry.top/"/>
-  <updated>2021-04-25T03:01:07.390Z</updated>
+  <updated>2021-05-28T02:37:29.448Z</updated>
   <id>http://cavalry.top/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python设计模式</title>
+    <link href="http://cavalry.top/2021/05/28/python-she-ji-mo-shi/"/>
+    <id>http://cavalry.top/2021/05/28/python-she-ji-mo-shi/</id>
+    <published>2021-05-28T02:37:29.000Z</published>
+    <updated>2021-05-28T02:37:29.448Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>python与ES</title>
@@ -225,6 +238,35 @@
     
     
     <category term="测试" scheme="http://cavalry.top/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫框架的理解与规划</title>
+    <link href="http://cavalry.top/2020/05/26/pa-chong-kuang-jia-de-li-jie-yu-gui-hua/"/>
+    <id>http://cavalry.top/2020/05/26/pa-chong-kuang-jia-de-li-jie-yu-gui-hua/</id>
+    <published>2020-05-26T08:52:12.000Z</published>
+    <updated>2021-05-27T10:06:04.445Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;爬虫的分类&quot;&gt;&lt;a href=&quot;#爬虫的分类&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="爬虫" scheme="http://cavalry.top/categories/%E7%88%AC%E8%99%AB/"/>
+    
+    
+    <category term="python" scheme="http://cavalry.top/tags/python/"/>
+    
+    <category term="爬虫" scheme="http://cavalry.top/tags/%E7%88%AC%E8%99%AB/"/>
+    
+    <category term="总结" scheme="http://cavalry.top/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
