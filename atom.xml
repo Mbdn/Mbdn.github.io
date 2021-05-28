@@ -6,7 +6,7 @@
   <link href="http://cavalry.top/atom.xml" rel="self"/>
   
   <link href="http://cavalry.top/"/>
-  <updated>2021-05-28T02:41:57.313Z</updated>
+  <updated>2021-04-25T03:01:07.390Z</updated>
   <id>http://cavalry.top/</id>
   
   <author>
@@ -15,19 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>python设计模式</title>
-    <link href="http://cavalry.top/2021/05/28/python-she-ji-mo-shi/"/>
-    <id>http://cavalry.top/2021/05/28/python-she-ji-mo-shi/</id>
-    <published>2021-05-28T02:37:29.000Z</published>
-    <updated>2021-05-28T02:41:57.313Z</updated>
-    
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>python与ES</title>
@@ -217,27 +204,28 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://cavalry.top/2021/01/25/hello-world/"/>
-    <id>http://cavalry.top/2021/01/25/hello-world/</id>
-    <published>2021-01-25T14:57:27.822Z</published>
-    <updated>2021-01-26T06:34:14.253Z</updated>
+    <title>python设计模式（一）</title>
+    <link href="http://cavalry.top/2020/05/28/python-she-ji-mo-shi-yi/"/>
+    <id>http://cavalry.top/2020/05/28/python-she-ji-mo-shi-yi/</id>
+    <published>2020-05-28T02:37:29.000Z</published>
+    <updated>2021-05-28T03:07:46.330Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;p&gt;本篇是对《精通python设计模式》第二版的笔记与总结，特此记录&lt;/p&gt;
+</summary>
         
       
     
     
     
-    <category term="测试" scheme="http://cavalry.top/categories/%E6%B5%8B%E8%AF%95/"/>
+    <category term="python" scheme="http://cavalry.top/categories/python/"/>
     
     
-    <category term="测试" scheme="http://cavalry.top/tags/%E6%B5%8B%E8%AF%95/"/>
+    <category term="python" scheme="http://cavalry.top/tags/python/"/>
     
   </entry>
   
