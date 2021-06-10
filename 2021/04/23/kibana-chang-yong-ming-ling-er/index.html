@@ -482,21 +482,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-25
+                    2021-06-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    9 分
                 </div>
                 
 
@@ -592,7 +592,269 @@ POST test1&#x2F;_doc&#x2F;1
   &#125;
 &#125;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="增加索引字段"><a href="#增加索引字段" class="headerlink" title="增加索引字段"></a>增加索引字段</h2><p>查看结构</p>
+<pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">GET fy_lawyer_list&#x2F;_mapping
 
+# 结果
+&#123;
+  &quot;fy_lawyer_list&quot; : &#123;
+    &quot;mappings&quot; : &#123;
+      &quot;properties&quot; : &#123;
+        &quot;address&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;categorys&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;education&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;email&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;graduated_from&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;id&quot; : &#123;
+          &quot;type&quot; : &quot;integer&quot;
+        &#125;,
+        &quot;law_office_id&quot; : &#123;
+          &quot;type&quot; : &quot;integer&quot;
+        &#125;,
+        &quot;license&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;name&quot; : &#123;
+          &quot;type&quot; : &quot;text&quot;,
+          &quot;fields&quot; : &#123;
+            &quot;keyword&quot; : &#123;
+              &quot;type&quot; : &quot;keyword&quot;,
+              &quot;ignore_above&quot; : 256
+            &#125;
+          &#125;
+        &#125;,
+        &quot;office_name&quot; : &#123;
+          &quot;type&quot; : &quot;text&quot;
+        &#125;,
+        &quot;operation_experience&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;phone&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;settle&quot; : &#123;
+          &quot;type&quot; : &quot;boolean&quot;
+        &#125;,
+        &quot;sex&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>第二步：查看索引是否允许被修改</p>
+<pre class="line-numbers language-none"><code class="language-none">GET news&#x2F;_settings
+
+# 结果
+&#123;
+  &quot;fy_lawyer_list&quot; : &#123;
+    &quot;settings&quot; : &#123;
+      &quot;index&quot; : &#123;
+        &quot;refresh_interval&quot; : &quot;30s&quot;,
+        &quot;number_of_shards&quot; : &quot;1&quot;,
+        &quot;translog&quot; : &#123;
+          &quot;sync_interval&quot; : &quot;30s&quot;,
+          &quot;durability&quot; : &quot;async&quot;
+        &#125;,
+        &quot;provided_name&quot; : &quot;fy_lawyer_list&quot;,
+        &quot;creation_date&quot; : &quot;1612687227667&quot;,
+        &quot;analysis&quot; : &#123;
+          &quot;analyzer&quot; : &#123;
+            &quot;default&quot; : &#123;
+              &quot;type&quot; : &quot;ik_max_word&quot;
+            &#125;
+          &#125;
+        &#125;,
+        &quot;number_of_replicas&quot; : &quot;1&quot;,
+        &quot;uuid&quot; : &quot;-kN0dFCqS4CFdvuOgNi4sQ&quot;,
+        &quot;version&quot; : &#123;
+          &quot;created&quot; : &quot;7080099&quot;
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>查看结果中的 read_only_allow_delete是否为true,为true时即可修改，如果为false时，说明索引时只读状态<br>添加</p>
+<pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">PUT fy_lawyer_list&#x2F;_mapping
+&#123;
+  &quot;properties&quot;: &#123;
+    &quot;lvid&quot;:
+      &#123;
+        &quot;type&quot;:&quot;keyword&quot;
+      &#125;
+
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在properties里面添加lvid字段，类型为keyword</p>
+<h2 id="复制索引"><a href="#复制索引" class="headerlink" title="复制索引"></a>复制索引</h2><pre class="line-numbers language-sdl" data-language="sdl"><code class="language-sdl">POST _reindex
+&#123;
+    &quot;source&quot;: &#123;
+        &quot;index&quot;: &quot;dynamic_data_v2&quot;
+    &#125;,
+    &quot;dest&quot;: &#123;
+        &quot;index&quot;: &quot;dynamic_data_v5&quot;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="更改已有数据的数据类型"><a href="#更改已有数据的数据类型" class="headerlink" title="更改已有数据的数据类型"></a>更改已有数据的数据类型</h2><ol>
+<li><p>查看源字段类型：</p>
+ <pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">   GET fy_lawyer_list&#x2F;_mapping
+
+&#123;
+  &quot;fy_lawyer_list_cp&quot; : &#123;
+    &quot;mappings&quot; : &#123;
+      &quot;properties&quot; : &#123;
+        &quot;address&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;categorys&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;education&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;email&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;graduated_from&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;id&quot; : &#123;
+          &quot;type&quot; : &quot;integer&quot;
+        &#125;,
+        &quot;law_office_id&quot; : &#123;
+          &quot;type&quot; : &quot;integer&quot;
+        &#125;,
+        &quot;license&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;name&quot; : &#123;
+          &quot;type&quot; : &quot;text&quot;,
+          &quot;fields&quot; : &#123;
+            &quot;keyword&quot; : &#123;
+              &quot;type&quot; : &quot;keyword&quot;,
+              &quot;ignore_above&quot; : 256
+            &#125;
+          &#125;
+        &#125;,
+        &quot;office_name&quot; : &#123;
+          &quot;type&quot; : &quot;text&quot;
+        &#125;,
+        &quot;operation_experience&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;phone&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;settle&quot; : &#123;
+          &quot;type&quot; : &quot;boolean&quot;
+        &#125;,
+        &quot;sex&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>更改指定字段类型，新建索引fy_lawyer_list_cp</p>
+ <pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">PUT fy_lawyer_list_cp
+GET text&#x2F;_mapping
+
+&#123;
+  &quot;fy_lawyer_list_cp&quot; : &#123;
+    &quot;mappings&quot; : &#123;
+      &quot;properties&quot; : &#123;
+        &quot;address&quot; : &#123;
+          &quot;type&quot; : &quot;text&quot;
+        &#125;,
+        &quot;categorys&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;education&quot; : &#123;
+          &quot;type&quot; : &quot;text&quot;
+        &#125;,
+        &quot;email&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;graduated_from&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;id&quot; : &#123;
+          &quot;type&quot; : &quot;integer&quot;
+        &#125;,
+        &quot;law_office_id&quot; : &#123;
+          &quot;type&quot; : &quot;integer&quot;
+        &#125;,
+        &quot;license&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;name&quot; : &#123;
+          &quot;type&quot; : &quot;text&quot;,
+          &quot;fields&quot; : &#123;
+            &quot;keyword&quot; : &#123;
+              &quot;type&quot; : &quot;keyword&quot;,
+              &quot;ignore_above&quot; : 256
+            &#125;
+          &#125;
+        &#125;,
+        &quot;office_name&quot; : &#123;
+          &quot;type&quot; : &quot;text&quot;
+        &#125;,
+        &quot;operation_experience&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;phone&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;,
+        &quot;settle&quot; : &#123;
+          &quot;type&quot; : &quot;boolean&quot;
+        &#125;,
+        &quot;sex&quot; : &#123;
+          &quot;type&quot; : &quot;keyword&quot;
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我这里改了address和education</p>
+</li>
+<li><p>将fy_lawyer_list数据reindex到fy_lawyer_list_cp</p>
+ <pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">POST &#x2F;_reindex
+&#123;
+  &quot;source&quot;: &#123;
+    &quot;index&quot;: &quot;fy_lawyer_list&quot;
+  &#125;,
+  &quot;dest&quot;: &#123;
+    &quot;index&quot;: &quot;fy_lawyer_list_cp&quot;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>删除索引blog</p>
+ <pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">DELETE fy_lawyer_list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>将fy_lawyer_list数据reindex到fy_lawyer_list_cp</p>
+ <pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">POST _reindex
+&#123;
+  &quot;source&quot;: &#123;
+    &quot;index&quot;: &quot;fy_lawyer_list_cp&quot;
+  &#125;,
+  &quot;dest&quot;: &#123;
+    &quot;index&quot;: &quot;fy_lawyer_list&quot;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>删除索引fy_lawyer_list_cp</p>
+ <pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">DELETE fy_lawyer_list_cp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
 <h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><p>删除fy_lawyer_doc_item索引</p>
 <pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">DELETE &#x2F;fy_lawyer_doc_item?pretty<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="根据主键删除数据"><a href="#根据主键删除数据" class="headerlink" title="根据主键删除数据"></a>根据主键删除数据</h3><pre class="line-numbers language-dsl" data-language="dsl"><code class="language-dsl">DELETE test1&#x2F;1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1518,7 +1780,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.3k</span>&nbsp;字
+                class="white-color">11.2k</span>&nbsp;字
             
             
             

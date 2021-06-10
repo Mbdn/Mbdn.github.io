@@ -6,7 +6,7 @@
   <link href="http://cavalry.top/atom.xml" rel="self"/>
   
   <link href="http://cavalry.top/"/>
-  <updated>2021-04-25T03:01:07.390Z</updated>
+  <updated>2021-06-02T01:25:29.616Z</updated>
   <id>http://cavalry.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>element-ui（一）</title>
+    <link href="http://cavalry.top/2021/06/01/vue-ji-chu-yi/"/>
+    <id>http://cavalry.top/2021/06/01/vue-ji-chu-yi/</id>
+    <published>2021-06-01T14:19:51.000Z</published>
+    <updated>2021-06-02T01:25:29.616Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;官方文档 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="http://cavalry.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="vue" scheme="http://cavalry.top/tags/vue/"/>
+    
+    <category term="element-ui" scheme="http://cavalry.top/tags/element-ui/"/>
+    
+  </entry>
   
   <entry>
     <title>python与ES</title>
@@ -48,7 +75,7 @@
     <link href="http://cavalry.top/2021/04/23/kibana-chang-yong-ming-ling-er/"/>
     <id>http://cavalry.top/2021/04/23/kibana-chang-yong-ming-ling-er/</id>
     <published>2021-04-23T01:43:15.000Z</published>
-    <updated>2021-04-25T03:03:20.444Z</updated>
+    <updated>2021-06-07T13:14:10.632Z</updated>
     
     
       
@@ -208,14 +235,15 @@
     <link href="http://cavalry.top/2020/05/28/python-she-ji-mo-shi-yi/"/>
     <id>http://cavalry.top/2020/05/28/python-she-ji-mo-shi-yi/</id>
     <published>2020-05-28T02:37:29.000Z</published>
-    <updated>2021-05-28T07:25:58.816Z</updated>
+    <updated>2021-06-01T14:20:31.879Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;本篇是对《精通python设计模式》第二版的笔记与总结，特此记录&lt;br&gt;Facebook-like distraction free</summary>
+    <summary type="html">&lt;p&gt;本篇是对《精通python设计模式》第二版的笔记与总结，特此记录&lt;/p&gt;
+</summary>
         
       
     
@@ -252,6 +280,31 @@
     <category term="python" scheme="http://cavalry.top/tags/python/"/>
     
     <category term="爬虫" scheme="http://cavalry.top/tags/%E7%88%AC%E8%99%AB/"/>
+    
+    <category term="总结" scheme="http://cavalry.top/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>md语法</title>
+    <link href="http://cavalry.top/2020/01/02/md-yu-fa/"/>
+    <id>http://cavalry.top/2020/01/02/md-yu-fa/</id>
+    <published>2020-01-02T00:34:06.000Z</published>
+    <updated>2021-06-02T01:23:00.449Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;本教程出自RUNOOB.COM &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="总结" scheme="http://cavalry.top/categories/%E6%80%BB%E7%BB%93/"/>
+    
     
     <category term="总结" scheme="http://cavalry.top/tags/%E6%80%BB%E7%BB%93/"/>
     
